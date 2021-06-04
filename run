@@ -59,10 +59,7 @@ function clean { # Remove cache and other machine generates files
 
 function help { # Help menu
   printf "\n%s <task> [args]\n\nTasks:\n" "${0}"
-
-  #compgen -A function | grep -v "^_" | cat -n
   cat "$0" | grep "function [a-z]" | cut -d' ' -f2- | awk '{printf "\t%-20s\t%s\n", $1, substr($0,index($0,$4))}'
-
   printf "\nExtended help:\n  Each task has comments for general usage\n"
 }
 
